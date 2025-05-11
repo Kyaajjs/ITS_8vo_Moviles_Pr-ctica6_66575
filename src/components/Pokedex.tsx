@@ -12,7 +12,7 @@ import { Cross } from './Buttons/Cross';
 const Pokedex: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { menuOption, screen, setMenuOption, setScreen } = useContext(MenuPokedexContext);
   const router = useIonRouter();
-  
+
   const onBigBlueButtonClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (screen === EPokedexScreen.MENU) {
       e.preventDefault();
@@ -23,7 +23,11 @@ const Pokedex: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }
 
   const toggleScreen = () => {
-    if (screen === EPokedexScreen.EXIT) {
+    if (screen === EPokedexScreen.POKEMON_DETAIL) {
+      // Si estamos en detalle de Pokémon, regresamos a la lista
+      setScreen(EPokedexScreen.POKEDEX);
+      router.push('/pokedex');
+    } else if (screen === EPokedexScreen.EXIT) {
       setScreen(EPokedexScreen.MENU);
       setMenuOption(EPokedexMenuOption.POKEDEX);
       router.push('/home');
@@ -31,8 +35,9 @@ const Pokedex: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       setScreen(EPokedexScreen.EXIT);
       router.push('/exit');
     }
-  }
-  
+  };
+
+
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -67,6 +72,7 @@ const Pokedex: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 className="gameboy-button"
                 onClick={toggleScreen}
               >
+
               </div>
               <div id="speakers">
                 <div className="sp"></div>
@@ -82,7 +88,15 @@ const Pokedex: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             >
             </div>
             <div id="barbutton1" className="gameboy-button"></div>
-            <div id="barbutton2" className="gameboy-button"></div>
+            <div
+              id="barbutton2"
+              className="gameboy-button"
+              onClick={() => {
+                const event = new CustomEvent("cross-back");
+                window.dispatchEvent(event);
+              }}
+            ></div>
+
             <Cross />
           </div>
         </div>

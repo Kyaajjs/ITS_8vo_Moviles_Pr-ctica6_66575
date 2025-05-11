@@ -13,9 +13,11 @@ export const MenuPokedexProvider = ({ children }: { children: ReactNode | JSX.El
     return screen;
   }
 
-  const setMenuOptionValue = (option: EPokedexMenuOption) => {
-    setMenuOption(option);
-  };
+ const setMenuOptionValue = (option: EPokedexMenuOption) => {
+   setMenuOption(option);
+   window.dispatchEvent(new CustomEvent("menuOption-changed"));
+ };
+
 
   const getMenuOption = () => {
     return menuOption;

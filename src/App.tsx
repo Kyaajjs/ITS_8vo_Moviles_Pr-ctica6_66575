@@ -1,16 +1,16 @@
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
+import ObjectDetailPage from './components/ObjectDetails'; // Importa la nueva página
 
-/* Core CSS required for Ionic components to work properly */
+<Route exact path="/object-detail">
+  <ObjectDetailPage />
+</Route>
+
 import '@ionic/react/css/core.css';
-
-/* Basic CSS for apps built with Ionic */
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
 import '@ionic/react/css/typography.css';
-
-/* Optional CSS utils that can be commented out */
 import '@ionic/react/css/display.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/float-elements.css';
@@ -18,11 +18,12 @@ import '@ionic/react/css/padding.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 
-/* Theme variables */
-import Pokedex from './components/Pokedex';
 import './theme/variables.css';
+import Pokedex from './components/Pokedex';
 import { MenuPokedexProvider } from './contexts/MenuPokedexProvider';
 import { PokedexMenu } from './components/Menu/PokedexMenu';
+import PokedexPage from './pages/PokedexPage';
+import PackPage from './pages/PackPage';
 
 setupIonicReact();
 
@@ -36,12 +37,13 @@ const App: React.FC = () => (
               <PokedexMenu />
             </Route>
             <Route exact path="/pokedex">
-              <>Esta es la Pokedex</>
+              <PokedexPage />
             </Route>
             <Route exact path="/pack">
-              <>Esta es la bolsa de objetos</>
+              <PackPage />
             </Route>
             <Route exact path="/exit">
+              {/* futura acción de salida */}
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />

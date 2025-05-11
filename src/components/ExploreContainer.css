@@ -10,15 +10,22 @@
 #container strong {
   font-size: 20px;
   line-height: 26px;
+  color: #4a148c; /* morado oscuro */
 }
 
 #container p {
   font-size: 16px;
   line-height: 22px;
-  color: #8c8c8c;
+  color: #7e57c2; /* morado suave */
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+  color: #311b92; /* morado intenso */
+  transition: color 0.3s ease;
+}
+
+#container a:hover {
+  color: #7e57c2; /* cambio a morado claro al pasar el mouse */
 }

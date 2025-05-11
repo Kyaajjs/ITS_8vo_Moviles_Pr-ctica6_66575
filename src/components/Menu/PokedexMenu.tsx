@@ -11,7 +11,14 @@ export const PokedexMenu = () => {
   }
 
   return (
-    <div className="font-pokemon text-xs !m-2 !p-2  border-3 border-double border-black rounded-md h-[calc(100%-1rem)]">
+    <div
+      className="font-pokemon text-xs !m-2 !p-2 border-3 border-double border-black rounded-md h-[calc(100%-1rem)]"
+      style={{
+        backgroundColor: '#ffffff', // verde brillante
+
+        color: '#003300',
+      }}
+    >
       <ul>
         <li>
           <div className="flex flex-row justify-end">
@@ -32,7 +39,7 @@ export const PokedexMenu = () => {
               icon={faCaretRight}
             />
             <span className="w-full"></span>
-            <span>Objetos</span>
+            <span>Objectos</span>
           </div>
         </li>
         <li>

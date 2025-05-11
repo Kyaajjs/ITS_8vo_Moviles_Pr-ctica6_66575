@@ -1,0 +1,98 @@
+.item-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  position: relative;
+  background-color: #f5f0fa; /* fondo lila muy claro */
+  border-radius: 12px;
+  margin-bottom: 6px;
+  transition: transform 0.3s ease;
+  border: none;
+}
+
+/* Línea morada arriba y abajo */
+.selected-entry {
+  background-color: #ede7f6; /* fondo morado claro */
+  transform: scale(1.02); /* leve zoom visual */
+}
+
+.selected-entry::before,
+.selected-entry::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #7e57c2; /* morado vibrante */
+  border-radius: 2px;
+}
+
+.selected-entry::before {
+  top: 0;
+}
+
+.selected-entry::after {
+  bottom: 0;
+}
+
+/* Imagen flotante y escala suave */
+.item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.4s ease-in-out;
+  filter: drop-shadow(0 0 2px #9575cd); /* sombra morada suave */
+}
+
+/* Zoom de imagen cuando está seleccionada */
+.selected-entry .item-image {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 6px #5e35b1); /* sombra morada más intensa */
+}
+
+/* Animación flotante */
+.float-image {
+  animation: float 1.2s infinite ease-in-out;
+}
+
+.item-label {
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 1rem;
+  margin-left: auto;
+  text-align: right;
+  width: 100%;
+  padding-right: 10px;
+  color: #5e35b1; /* texto morado oscuro */
+  transition: color 0.3s ease;
+}
+
+/* Letra más negra cuando está seleccionada */
+.selected-entry .item-label {
+  color: #311b92; /* morado muy oscuro */
+}
+
+/* Animación flotante */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Scroll limpio */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-y: scroll;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

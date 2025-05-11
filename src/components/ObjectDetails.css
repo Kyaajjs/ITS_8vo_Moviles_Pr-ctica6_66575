@@ -1,0 +1,94 @@
+/* General container for the object detail screen */
+.object-details-screen {
+  color: #4a148c; /* Morado oscuro para legibilidad */
+  font-family: 'Arial', sans-serif; /* Fuente base */
+  background-color: #f3e5f5; /* Fondo lila muy claro */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(103, 58, 183, 0.2); /* Sombra suave morada */
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.object-detail-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(103, 58, 183, 0.5); /* Sombra morada para imagen */
+}
+
+/* Aplicar fuente Pokémon sólo para el nombre */
+.detail-info h3 {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0 0 16px 0;
+  font-size: 1.2rem;
+  font-family: 'Pokemon GB', sans-serif;
+  color: #311b92; /* Morado intenso para el título */
+}
+
+.detail-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detail-info li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #d1c4e9; /* Línea separadora lila clara */
+}
+
+.detail-info li strong {
+  color: #512da8; /* Morado medio para nombres de propiedades */
+  font-weight: bold;
+}
+
+.detail-info li span {
+  color: #7e57c2; /* Morado suave para valores */
+  font-weight: normal;
+}
+
+.detail-info li:not(:last-child) {
+  /* La línea está ya aplicada arriba en li, puedes eliminar esto si quieres */
+}
+
+.detail-info li strong,
+.detail-info li span {
+  text-align: left;
+  margin: 0;
+}
+
+.detail-info li span {
+  text-align: right;
+}
+
+/* Responsive para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+  .object-detail-image {
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 8px rgba(103, 58, 183, 0.4);
+  }
+
+  .detail-info li {
+    font-size: 0.9rem;
+  }
+
+  .detail-info h3 {
+    font-size: 1.2rem;
+  }
+}
